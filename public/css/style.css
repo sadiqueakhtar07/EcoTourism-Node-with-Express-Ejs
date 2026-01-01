@@ -1,0 +1,17 @@
+.navbar{
+    background-color: #0D4715;
+    height: 4rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #EBE1D1;             
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link{
+    color: white;
+}
