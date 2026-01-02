@@ -79,6 +79,10 @@ app.delete('/listings/:id', async(req,res)=>{
     res.redirect('/listings');
 });
 
+app.get('/',(req,res)=>{
+    res.send('Server is running....');
+})
+
 app.listen(PORT,()=>{
     console.log(`App is running on port: ${PORT}`);
 });
