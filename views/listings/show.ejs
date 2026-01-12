@@ -1,10 +1,10 @@
 <% layout('/layout/boilerplate') %>
 
-    <div class="row">
-        <div class="col mb-3">
+    <div class="row mt-3">
+        <div class="col-8 offset-3">
             <img class="listImg" src="<%= singleList.image.url%>" alt="listingImage">
         </div>
-e
+        e
         <div class="col">
             <h1 class="mb-3">
                 <b>
@@ -33,8 +33,55 @@ e
                     <button class="btn btn-dark">Delete</button>
                 </form>
             </div>
-
-
         </div>
 
+
+
+        <hr>
+        <div class="col-8 offset-3 mb-3">
+            <h3>Leave a Review</h3>
+            <form action="/listings/<%= singleList._id%>/reviews" method="post" novalidate class="needs-validation">
+                <div class="mb-3 mt-3">
+                    <label for="rating" class="form-label">Rating</label>
+                    <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range">
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label for="comment" class="form-label">Comments</label>
+                    <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control"
+                        required></textarea>
+
+                    <div class="invalid-feedback">
+                        Please add some comments...
+                    </div>
+                </div>
+
+                <button class="btn btn-dark mt-3">Submit</button>
+            </form>
+
+            <hr>
+            <h4>All reviews</h4>
+            <div class="row">
+                <% for(review of singleList.reviews) { %>
+                    <div class="card col-5 ms-3 mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Sadique Akhtar</h5>
+                            <p class="card-text">
+                                <%= review.comment %>
+                            </p>
+                            <p class="card-text">
+                                <%=review.rating %> stars
+                            </p>
+
+                            <form class="mb-3" method="post"
+                                action="/listings/<%= singleList._id%>/reviews/<%= review._id%>?_method=DELETE">
+                                <button class="btn btn-sm btn-dark">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
     </div>
+
+    <!-- <script src="/js/script.js"></script> -->

@@ -10,7 +10,7 @@ const reviewSchema = new mongoose.Schema({
         max:5,
     },
 
-    created_at:{
+    createdAt:{
         type:Date,
         default: Date.now()
     }
