@@ -22,7 +22,7 @@ router.get('/new', isLoggedIn, (req, res) => {
 //show route
 router.get('/:id', isLoggedIn, wrapAsync(async (req, res) => {
     let { id } = req.params;
-    const singleList = await Listing.findById(id).populate("reviews").populate("owner");
+    const singleList = await Listing.findById(id).populate({path: "reviews", populate:{path:"author"}}).populate("owner");
     // console.log(singleList);
     if(!singleList){
         req.flash("error", "Doesn't Exists !");
