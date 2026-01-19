@@ -26,6 +26,7 @@
             </ul>
             <br>
 
+            <% if(currUser && currUser._id.equals(singleList.owner._id)){ %>
             <div class="button ml-5 mb-3">
                 <a href="/listings/<%= singleList._id%>/edit" class="btn btn-dark">Edit this Listing</a>
 
@@ -33,6 +34,7 @@
                     <button class="btn btn-dark">Delete</button>
                 </form>
             </div>
+            <% } %>
         </div>
 
 
